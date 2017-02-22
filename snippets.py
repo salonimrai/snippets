@@ -37,8 +37,14 @@ def main():
     put_parser = subparsers.add_parser("put", help="Store a snippet")
     put_parser.add_argument("name", help="Name of the snippet")
     put_parser.add_argument("snippet", help="Snippet text")
+    
+    # Subparser for the put command
+    logging.debug("Constructing get subparser")
+    get_parser = subparsers.add_parser("get", help="Retrieve a snippet")
+    get_parser.add_argument("name", help="Name of the snippet")
 
     arguments = parser.parse_args()
+    print(arguments)
     
 
 if __name__ == "__main__":
