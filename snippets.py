@@ -46,6 +46,17 @@ def main():
     arguments = parser.parse_args()
     print(arguments)
     
+    arguments = vars(arguments)
+    print(arguments)
+    command = arguments.pop("command")
+    print(command)
+    
+    if command == "put":
+        name, snippet = put(**arguments)
+        print("Stored {!r} as {!r}".format(snippet, name))
+    elif command == "get":
+        snippet = get(**arguments)
+        print("Retrieved snippet: {!r}".format(snippet))
 
 if __name__ == "__main__":
     main()
